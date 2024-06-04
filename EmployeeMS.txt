@@ -1,0 +1,45 @@
+-- Table: public.employeedb
+
+-- DROP TABLE IF EXISTS public.employeedb;
+
+CREATE TABLE IF NOT EXISTS public.employeedb
+(
+    id integer NOT NULL DEFAULT nextval('employeedb_id_seq'::regclass),
+    name character varying(100) COLLATE pg_catalog."default",
+    dob date,
+    salary double precision,
+    department character varying(100) COLLATE pg_catalog."default",
+    address character varying(100) COLLATE pg_catalog."default",
+    role character varying(100) COLLATE pg_catalog."default",
+    joining_date date,
+    yearly_bonus_percentage double precision,
+    reporting_manager character varying(100) COLLATE pg_catalog."default",
+    department_id numeric(10,0),
+    CONSTRAINT employeedb_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.employeedb
+    OWNER to usr_training;
+
+____________________________________________________________
+
+
+-- Table: public.departmentdb
+
+-- DROP TABLE IF EXISTS public.departmentdb;
+
+CREATE TABLE IF NOT EXISTS public.departmentdb
+(
+    id integer NOT NULL DEFAULT nextval('departmentdb_id_seq'::regclass),
+    name character varying(100) COLLATE pg_catalog."default",
+    creation_date date,
+    department_head character varying(100) COLLATE pg_catalog."default",
+    CONSTRAINT departmentdb_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.departmentdb
+    OWNER to usr_training;
